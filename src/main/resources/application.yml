@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  # 天猫精灵技能回调是 POST 原始 JSON 字符串，别让框架强制字符集
+  http:
+    encoding:
+      charset: UTF-8
+      force: false
