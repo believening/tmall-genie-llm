@@ -85,6 +85,12 @@ public class GenieGlmController {
     private final Map<String, ArrayDeque<String[]>> history = Collections.synchronizedMap(
             new HashMap<>());
 
+    /** 健康检查/保活端点（UptimeRobot 等监控可指向这里） */
+    @org.springframework.web.bind.annotation.GetMapping("/health")
+    public String health() {
+        return "ok";
+    }
+
     @RequestMapping({"/", "/genie"})
     public ResultModel<TaskResult> chat(@RequestBody String json) {
         log.info("genie request: {}", json);
